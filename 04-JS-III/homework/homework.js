@@ -31,6 +31,12 @@ function incrementarPorUno(array) {
     newArray[i] = array[i] + 1 
   }
   return newArray
+
+  //forma + simple sin crear el newArray
+ /*  for (let i = 0; i<array.length; i++){
+    array[i] = array[i] + 1 
+  }
+  return array */
 }
 
 
@@ -60,7 +66,16 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return palabras.join(' ')
+  
+  /* forma + sencilla de hacer */
+  /* return palabras.join(' ') */
+
+  var respuesta= palabras[0]
+  for (let i = 1; i<palabras.length; i++){
+    respuesta = respuesta +  ' ' + palabras[i];
+  }
+  return respuesta
+
 }
 
 
@@ -73,6 +88,17 @@ function arrayContiene(array, elemento) {
   }else{
     return false
   }
+
+ /*  otra forma de hacerlo con bucle
+
+  for (let i = 1; i<array.length; i++){
+    if(array[i] == elemento){
+      return true
+    }
+  }
+  return false */
+
+
 }
 
 
@@ -92,7 +118,12 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  
+  var promedio = 0
+  for(var i = 0; i < resultadosTest.length; i++) {
+    promedio = promedio + resultadosTest[i]
+  }
+    promedio = promedio / resultadosTest.length
+    return promedio
 }
 
 
@@ -100,13 +131,22 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  let numMax = numeros[0];
+/*   let numMax = numeros[0];
   for(let i = 1; i < numeros.length; i++) {
     if(numeros[i] > numMax) { 
       numMax = numeros[i];
     }
   }
-  return numMax;
+  return numMax; */
+
+  /* otra forma */
+  var mayor = numeros[0]
+  for(var i = 0; i < numeros.length; i++) {
+     if (mayor < numeros[i]){
+        mayor = numeros[i]
+    }
+  }
+  return mayor
   
 }
 
@@ -115,7 +155,7 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-  if (arguments.length < 1) return 0
+  if (arguments.length  === 0) return 0
   let producto = 1
   for(let i=0; i<arguments.length; i++){
     producto = producto * arguments[i]
@@ -126,10 +166,15 @@ function multiplicarArgumentos() {
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
-if (arreglo.length > 18){
-  return arreglo.length
+  var cantidad = 0;
+  for (let i=0; i<arreglo.length; i++){
+    if(arreglo[i] > 18){
+      cantidad++
+    }
+  }
+    return cantidad
 }
-}
+
 
 
 function diaDeLaSemana(numeroDeDia) {
@@ -142,7 +187,7 @@ function diaDeLaSemana(numeroDeDia) {
   }else{
     return 'Es dia Laboral'
   }
-  
+
 } 
 
 
@@ -164,6 +209,12 @@ function todosIguales(arreglo) {
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
  
+  for (var i = 0; i<arreglo.length - 1; i++){
+    if (arreglo[i] !== arreglo[i + 1]){
+      return false
+    }
+  }
+  return true
 } 
 
 
@@ -213,14 +264,11 @@ function breakStatement(numero) {
   // Tu código:
   var array = [];
   
-  for(var i= 0; i<=10; i++) {
+  for(var i= 0; i<10; i++) {
     numero = numero + 2;
-    if(numero === i) {
-      break;
-    } 
-    else {
-      array.push(numero);
-    }
+    array.push(numero);
+    if(numero == i) {
+      return 'Se interrumpió la ejecución';    } 
   }
   if(i <= 10) {
     return 'Se interrumpió la ejecución';
