@@ -76,6 +76,13 @@ function tieneEmail(usuario) {
   return false
 }
 
+/* otra forma
+  if( usuario.email){
+    return true
+  }
+  return false
+} */
+
 
 function tienePropiedad(objeto, propiedad) {
   // Devuelve "true" si el objeto tiene el valor del argumento "propiedad"
